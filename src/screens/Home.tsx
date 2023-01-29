@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
 // icon and image imports
@@ -6,25 +6,49 @@ import SearchIcon from "../../assets/search-icon.png";
 import Notification from "../../assets/notification-icon.png";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
+// import components
+import Receipt from "../components/Receipt";
+
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Gas year</Text>
+    <>
+      {/* Header wrapper */}
+      <View style={styles.titleContainer}>
+        <View style={styles.titleWrapper}>
+          <Text style={styles.title}>Gas year</Text>
+        </View>
+        <View style={styles.iconsWrapper}>
+          {/* <IoMdNotificationsOutline style={styles.icon} /> */}
+          <TouchableOpacity>
+            <Image source={Notification} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={SearchIcon}
+              style={[styles.icon, styles.iconRight]}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.iconsWrapper}>
-        {/* <IoMdNotificationsOutline style={styles.icon} /> */}
-        <Image source={Notification} style={styles.icon} />
-        <Image source={SearchIcon} style={[styles.icon, styles.iconRight]} />
+
+      {/* Receipts wrapper */}
+      <View style={styles.receiptContainer}>
+        <View style={styles.receiptTitleWrapper}>
+          <Text style={styles.receiptTitle}>My Receipts</Text>
+        </View>
+        <View style={styles.receiptsWrapper}>
+          <Receipt />
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {
+  // Header styling
+  titleContainer: {
     display: "flex",
     flexDirection: "row",
     width: "100%",
@@ -34,8 +58,6 @@ const styles = StyleSheet.create({
   },
   titleWrapper: {
     justifyContent: "flex-start",
-    // marginRight: 180,
-    // textAlign: "left",
   },
   title: {
     color: "black",
@@ -53,5 +75,23 @@ const styles = StyleSheet.create({
   },
   iconRight: {
     marginLeft: 8,
+  },
+  // Receipts styling
+  receiptContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  receiptTitleWrapper: {
+    paddingLeft: 34,
+  },
+  receiptTitle: {
+    fontSize: 18,
+    color: "#656565",
+  },
+  receiptsWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: 16,
   },
 });
