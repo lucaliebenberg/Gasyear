@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import React from "react";
 import Onboarding from "react-native-onboarding-swiper";
 
@@ -29,8 +29,6 @@ const OnboardingCarousel = () => (
   </View>
 );
 
-export default OnboardingCarousel;
-
 const styles = StyleSheet.create({
   container: {
     display: "flex",
@@ -39,3 +37,5 @@ const styles = StyleSheet.create({
     color: "black",
   },
 });
+
+export default OnboardingCarousel;
