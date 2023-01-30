@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
 // import images
@@ -18,21 +18,29 @@ const Settings = () => {
         </View>
       </View>
       <View style={styles.settingsInfoContainer}>
-        <View style={styles.settingsInfo}>
-          <Image
-            source={SettingsNotificationIcon}
-            style={styles.settingsInfoIcon}
-          />
-          <Text style={styles.settingsInfoText}>Notifications</Text>
-        </View>
-        <View style={styles.settingsInfo}>
-          <Image source={EditProfileIcon} style={styles.settingsInfoIcon} />
-          <Text style={styles.settingsInfoText}>Edit Profile</Text>
-        </View>
-        <View style={styles.settingsInfo}>
-          <Image source={LogOutIcon} style={styles.settingsInfoIcon} />
-          <Text style={styles.settingsInfoText}>Log Out</Text>
-        </View>
+        <TouchableOpacity>
+          <View style={styles.settingsInfo}>
+            <Image
+              source={SettingsNotificationIcon}
+              style={styles.settingsInfoIcon}
+            />
+            <Text style={styles.settingsInfoText}>Notifications</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.settingsInfo}>
+            <Image source={EditProfileIcon} style={styles.settingsInfoIcon} />
+            <Text style={styles.settingsInfoText}>Edit Profile</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.settingsInfoLastItem}>
+            <Image source={LogOutIcon} style={styles.settingsInfoIcon} />
+            <Text style={styles.settingsInfoText}>Log Out</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -71,13 +79,23 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     paddingTop: 120,
     paddingRight: 40,
+    paddingLeft: 60,
   },
   settingsInfo: {
     display: "flex",
     flexDirection: "row",
-    paddingBottom: 40,
-    // borderBottomWidth: 2,
-    // borderBottomColor: "grey",
+    width: 300,
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#EBEAEA",
+  },
+  settingsInfoLastItem: {
+    display: "flex",
+    flexDirection: "row",
+    width: 280,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   settingsInfoIcon: {
     width: 24,
